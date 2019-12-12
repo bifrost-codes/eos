@@ -2,7 +2,12 @@
 set -eo pipefail
 VERSION=1
 brew update
-brew install git cmake python@2 python libtool libusb graphviz automake wget gmp llvm@7 pkgconfig doxygen openssl@1.1 jq boost || :
+brew install git cmake python@2 python libtool libusb graphviz automake wget gmp pkgconfig doxygen openssl@1.1 jq || :
+# testing homebrew
+cd ~
+git clone https://github.com/EOSIO/homebrew-eosio && cd homebrew-eosio && git checkout more-brew-packages
+brew install ./llvm@7.rb
+brew install ./boost@1.71.rb
 # install mongoDB
 cd ~
 curl -OL https://fastdl.mongodb.org/osx/mongodb-osx-ssl-x86_64-3.6.3.tgz
